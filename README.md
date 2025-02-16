@@ -1,4 +1,4 @@
-#!/usr/bin/shdocumentation:
+#!/usr/bin/sh
 #Copyright (C) 2025 by john morris beck <john.morris.beck@hotmail.com>
 #
 #Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.
