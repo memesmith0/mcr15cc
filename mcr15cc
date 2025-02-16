@@ -10,6 +10,6 @@
 #RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
 #
 #THIS SOFTWARE.
-#documentation --> https://github.com/memesmith0/mcr14
-anymcr(){ if [ "$2" = "" ] ;then sh -c "$1"|sh -c "$1";else sh -c "$1"|sh -c "$1"|sh -c "$2">&2; fi;};mcr14(){ (a="(unset c f;while read -r i;do if [ \"\$i\" = m ] ;then read -r i;c=\"\$c\$i\";read -r i;f=\"\$f\$i\";else echo \"\$i\"|awk \"\$f{o=\\\$0;\$c print o}\"||exit;fi;done;)";if [ "$2" = "" ] ;then if  [ "$1" = "" ] ;then anymcr "$a"; else anymcr "$1"; fi; elif [ "$1" = "" ] ; then anymcr "$a" "$2"; else anymcr "$1" "$2"; fi;)};mcr14sh(){ mcr14 "" "sh";};mcr14cc(){ cat "$1" | mcr14 > "$1.c" && shift && gcc "$@" ; } ;
-mcr14cc "$@";
+#documentation --> https://github.com/memesmith0/mcr15
+anymcr(){ if [ "$2" = "" ] ;then sh -c "$1"|sh -c "$1";else sh -c "$1"|sh -c "$1"|sh -c "$2">&2; fi;};mcr15(){ (s="(c=\"\";while read -r i;do if [ \"\$i\" = m ] ;then read -r i;c=\"\$c\$i\";else echo \"\$i\"|sh -c \"read -r o;\$c echo \\\"\\\$o\\\"\"||exit;fi;done)";if [ "$2" = "" ] ;then if  [ "$1" = "" ] ;then anymcr "$s"; else anymcr "$s"; fi; elif [ "$1" = "" ] ; then anymcr "$s" "$2"; else anymcr "$1" "$2"; fi;)};mcr15sh(){ mcr15 "" "sh";};mcr15cc(){ cat "$1" | mcr15> "$1.c" && shift && gcc "$@" ; } ;
+mcr15cc "$@";
